@@ -1,0 +1,27 @@
+{
+  "name": "sswap",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "John McCambridge <jmccamb@gmail.com>",
+  "license": "MIT",
+  "private": "true",
+  "homepage": "https://moonphase13.github.io/sswap",
+  "scripts": {
+    "start": "node app.js",
+    "postinstall": "node postinstall.js && npm unlink sswap && npm link",
+    "build": "pkg app.js -t node14-win-x64,node14-macos-x64,node14-macos-arm64 -o dist/sswap",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "fs-extra": "^10.0.0",
+    "inquirer": "8.2.4"
+  },
+  "bin": {
+    "sswap": "./app.js"
+  },
+  "devDependencies": {
+    "pkg": "^5.3.3"
+  }
+}
